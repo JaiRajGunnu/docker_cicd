@@ -39,5 +39,23 @@ app.get("/items/:id", (req, res) => {
     res.json(item);
 });
 
+// Update - Update an item by ID
+app.put("/items/:id", (req, res) => {
+    const { id } = req.params;
+    const { name } = req.body;
+
+    const item = data.find((d) => d.id === id);
+
+    if (!item) {
+        return res.status(404).json({ message: "Item not found!" });
+    }
+
+    if (!name) {
+        return res.status(400).json({ message: "Name is required to update!" });
+    }
+
+    item.name = name;
+    res.json({ message: "Item updated successfully!", data });
+});
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
