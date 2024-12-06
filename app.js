@@ -58,4 +58,18 @@ app.put("/items/:id", (req, res) => {
     res.json({ message: "Item updated successfully!", data });
 });
 
+// Delete - Remove an item by ID
+app.delete("/items/:id", (req, res) => {
+    const { id } = req.params;
+    const initialLength = data.length;
+
+    data = data.filter((d) => d.id !== id);
+
+    if (data.length === initialLength) {
+        return res.status(404).json({ message: "Item not found!" });
+    }
+
+    res.json({ message: "Item deleted successfully!", data });
+});
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
