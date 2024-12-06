@@ -4,11 +4,13 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json());
+app.use(bodyParser.json());
 
 let data = [];
 
-// Create - Add a new item
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
 
 app.post("/items", (req, res) => {
     const { id, name } = req.body;
@@ -21,13 +23,10 @@ app.post("/items", (req, res) => {
     res.status(201).json({ message: "Item added successfully!", data });
 });
 
-
-// Read - Get all items
 app.get("/items", (req, res) => {
     res.json(data);
 });
 
-// Read - Get item by ID
 app.get("/items/:id", (req, res) => {
     const { id } = req.params;
     const item = data.find((d) => d.id === id);
@@ -39,7 +38,6 @@ app.get("/items/:id", (req, res) => {
     res.json(item);
 });
 
-// Update - Update an item by ID
 app.put("/items/:id", (req, res) => {
     const { id } = req.params;
     const { name } = req.body;
@@ -58,7 +56,6 @@ app.put("/items/:id", (req, res) => {
     res.json({ message: "Item updated successfully!", data });
 });
 
-// Delete - Remove an item by ID
 app.delete("/items/:id", (req, res) => {
     const { id } = req.params;
     const initialLength = data.length;
