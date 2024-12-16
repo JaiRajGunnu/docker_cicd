@@ -1,0 +1,17 @@
+# Node.js
+node_modules/
+
+# Logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Docker files (if not needed in the repo)
+.dockerignore
+
+# Environment variables
+.env
