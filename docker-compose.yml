@@ -1,4 +1,5 @@
-version: '3.1'
+version: '3.8'
+
 services:
   nodejs-app:
     build: .
@@ -8,3 +9,4 @@ services:
       - .:/app
     environment:
       - NODE_ENV=development
+    restart: always

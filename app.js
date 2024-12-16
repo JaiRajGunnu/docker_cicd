@@ -1,4 +1,4 @@
-// app.js
+'use strict';
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -19,6 +19,10 @@ app.post("/items", (req, res) => {
 
     if (!id || !name) {
         return res.status(400).json({ message: "ID and Name are required!" });
+    }
+
+    if (data.some((d) => d.id === id)) {
+        return res.status(400).json({ message: "Duplicate ID not allowed!" });
     }
 
     data.push({ id, name });
