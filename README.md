@@ -26,7 +26,7 @@ This project is a simple Node.js web server that performs CRUD (Create, Read, Up
 The project follows this structure:
 
 ```plaintext
-docker_cicd/
+docker-node-ci-cd/
 ├── Dockerfile          # Docker configuration
 ├── docker-compose.yml  # Docker Compose configuration
 ├── .dockerignore       # Files to ignore in Docker builds
@@ -44,11 +44,47 @@ Below are the available API endpoints:
 
 | Method     | Endpoint         | Description                | Example Request         |
 |------------|------------------|----------------------------|-------------------------|
-| **POST**   | `/api/items`     | Create a new item          | `{"name": "Item 1"}` |
+| **POST**   | `/api/items`     | Create a new item          | `{"id": 1, "name": "Item 1"}` |
 | **GET**    | `/api/items`     | Get all items              | -                       |
 | **GET**    | `/api/items/:id` | Get a single item by ID    | `/api/items/1`          |
-| **PUT**    | `/api/items/:id` | Update an item by ID       | `{"name": "Updated"}` |
+| **PUT**    | `/api/items/:id` | Update an item by ID       | `{"id": 1, "name": "Updated Item"}` |
 | **DELETE** | `/api/items/:id` | Delete an item by ID       | `/api/items/1`          |
+
+## Sample JSON Items
+Below are sample JSON items for testing the API:
+
+### Create (POST)
+```json
+{
+  "id": 1,
+  "name": "Item 1"
+}
+```
+
+### Get All Items (GET)
+```json
+[
+  {
+    "id": 1,
+    "name": "Item 1"
+  },
+  {
+    "id": 2,
+    "name": "Item 2"
+  }
+]
+```
+
+### Update Item (PUT)
+```json
+{
+  "id": 1,
+  "name": "Updated Item"
+}
+```
+
+### Delete Item (DELETE)
+No JSON body required. Use the endpoint `/api/items/:id`.
 
 ## Getting Started
 
@@ -57,8 +93,8 @@ Below are the available API endpoints:
 #### Without Docker
 1. Clone the repository:
    ```bash
-   git clone https://github.com/JaiRajGunnu/docker_cicd
-   cd docker_cicd
+   git clone https://github.com/your-username/docker-node-ci-cd.git
+   cd docker-node-ci-cd
    ```
 
 2. Install dependencies:
@@ -77,18 +113,18 @@ Below are the available API endpoints:
 #### With Docker
 1. Clone the repository:
    ```bash
-   git clone https://github.com/JaiRajGunnu/docker_cicd
-   cd docker_cicd
+   git clone https://github.com/your-username/docker-node-ci-cd.git
+   cd docker-node-ci-cd
    ```
 
 2. Build the Docker image:
    ```bash
-   docker build -t docker_cicd .
+   docker build -t docker-node-ci-cd .
    ```
 
 3. Run the container:
    ```bash
-   docker run -p 3000:3000 docker_cicd
+   docker run -p 3000:3000 docker-node-ci-cd
    ```
 
 4. Access the API:
@@ -97,8 +133,8 @@ Below are the available API endpoints:
 #### With Docker Compose
 1. Clone the repository:
    ```bash
-   git clone https://github.com/JaiRajGunnu/docker_cicd
-   cd docker_cicd
+   git clone https://github.com/your-username/docker-node-ci-cd.git
+   cd docker-node-ci-cd
    ```
 
 2. Run the application using Docker Compose:
@@ -173,7 +209,7 @@ You can test the API using **Postman** or **curl**.
 #### Create an Item
 ```bash
 curl -X POST -H "Content-Type: application/json" \
--d '{"name": "New Item"}' http://localhost:3000/api/items
+-d '{"id": 1, "name": "New Item"}' http://localhost:3000/api/items
 ```
 
 #### Get All Items
@@ -184,7 +220,7 @@ curl http://localhost:3000/api/items
 #### Update an Item
 ```bash
 curl -X PUT -H "Content-Type: application/json" \
--d '{"name": "Updated Item"}' http://localhost:3000/api/items/1
+-d '{"id": 1, "name": "Updated Item"}' http://localhost:3000/api/items/1
 ```
 
 #### Delete an Item
@@ -198,7 +234,8 @@ curl -X DELETE http://localhost:3000/api/items/1
 - Add unit tests using **Jest** or another testing framework.
 - Deploy the application to a cloud provider (e.g., AWS, Heroku).
 
-
+## License
+This project is licensed under the MIT License.
 
 ---
 
