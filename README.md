@@ -57,7 +57,7 @@ Below are the available API endpoints:
 #### Without Docker
 1. Clone the repository:
    ```bash
-   git clone https://github.com/JaiRajGunnu/docker_cicd
+   git clone https://github.com/your-username/docker-node-ci-cd.git
    cd docker-node-ci-cd
    ```
 
@@ -109,6 +109,49 @@ Below are the available API endpoints:
 3. Access the API:
    - Default URL: `http://localhost:3000`
 
+## Accessing the Docker Container's IP Address
+To send a request to your Docker container's IP address, follow these steps:
+
+### 1. Find the Container's IP Address
+You can find the container's IP address by running the following command:
+
+```bash
+docker inspect <container_name_or_id> | findstr "IPAddress"
+```
+
+For example, if your container is named `my_container`, run:
+
+```bash
+docker inspect my_container | findstr "IPAddress"
+```
+
+This will return the container's internal IP address, like this:
+
+```json
+"IPAddress": "172.17.0.2"
+```
+
+### 2. Send a Request to the Container's IP Address
+Once you have the IP address, you can send a request to the container from your host machine (or from Postman) using the container's IP and the port you mapped. For example:
+
+```http
+http://172.17.0.2:3000
+```
+
+If you have a RESTful API running on port `3000` inside the container, you can send a request to that IP address.
+
+### 3. Using Postman to Send a Request
+In Postman, use the following URL format to send requests to your container:
+
+```http
+http://<container_ip>:3000
+```
+
+Replace `<container_ip>` with the IP address you got from the previous step.
+
+### 4. Note About Port Mapping
+Even though you're accessing the container via its internal IP, if you've mapped the port (like `3000:3000`), you can also access it via `localhost:3000` or `127.0.0.1:3000` from your host machine.
+
 ## CI/CD Pipeline
 This project uses **GitHub Actions** for Continuous Integration and Deployment.
 
@@ -155,7 +198,9 @@ curl -X DELETE http://localhost:3000/api/items/1
 - Add unit tests using **Jest** or another testing framework.
 - Deploy the application to a cloud provider (e.g., AWS, Heroku).
 
+
+
 ---
 
-Thank you :)
 
+Thank you! 😊
