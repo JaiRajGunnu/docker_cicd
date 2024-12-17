@@ -25,7 +25,6 @@ jobs:
       - name: Debug Docker Username
         run: |
           echo "Docker Username is: ${{ secrets.DOCKER_USERNAME }}"
-          echo "Length of Docker Username: ${#secrets.DOCKER_USERNAME}"
 
       - name: Build Docker Image
         run: docker build -t my-docker-node-app .
@@ -36,7 +35,6 @@ jobs:
       - name: Debug Docker Tag
         run: |
           echo "Tagging with: ${{ secrets.DOCKER_USERNAME }}/my-docker-node-app:latest"
-          echo "Docker tag format check: ${{ secrets.DOCKER_USERNAME }}/my-docker-node-app:latest"
 
       - name: Tag Docker Image
         run: docker tag my-docker-node-app ${{ secrets.DOCKER_USERNAME }}/my-docker-node-app:latest
