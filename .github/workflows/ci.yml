@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the Code
+      - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Login to Docker Hub
@@ -24,7 +24,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          IMAGE_TAG="${{ secrets.DOCKER_USERNAME }}-docker_cicd:v1.0"
+          IMAGE_TAG="${{ secrets.DOCKER_USERNAME }}/docker_cicd:v1.0"
           docker build -t $IMAGE_TAG .
 
       - name: List Docker Images
@@ -32,5 +32,5 @@ jobs:
 
       - name: Push Docker Image to Docker Hub
         run: |
-          IMAGE_TAG="${{ secrets.DOCKER_USERNAME }}-docker_cicd:v1.0"
+          IMAGE_TAG="${{ secrets.DOCKER_USERNAME }}/docker_cicd:v1.0"
           docker push $IMAGE_TAG
