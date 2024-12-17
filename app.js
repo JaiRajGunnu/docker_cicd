@@ -18,7 +18,7 @@ app.post("/items", (req, res) => {
     const { id, name } = req.body;
 
     if (!id || !name) {
-        return res.status(400).json({ message: "ID and Name are required!" });
+        return res.status(400).json({ message: "ID and Name are mandatory!" });
     }
 
     if (data.some((d) => d.id === id)) {
