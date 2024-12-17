@@ -38,7 +38,7 @@ app.get("/items/:id", (req, res) => {
     const item = data.find((d) => d.id === id);
 
     if (!item) {
-        return res.status(404).json({ message: "Item not found!" });
+        return res.status(404).json({ message: "Sorry, Item not found!" });
     }
 
     res.json(item);
