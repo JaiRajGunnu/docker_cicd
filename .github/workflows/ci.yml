@@ -19,13 +19,13 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}/@gmail.com
+          username: ${{ secrets.DOCKER_USERNAME }}  # No need to append @gmail.com here
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker Image
         run: |
-          # Replace @ with - for the tag
-          IMAGE_TAG="${{ secrets.DOCKER_USERNAME}}-docker_cicd:v1.0"
+          # Replace @ with - for the tag (only if needed)
+          IMAGE_TAG="${{ secrets.DOCKER_USERNAME }}-docker_cicd:v1.0"
           docker build -t $IMAGE_TAG .
 
       - name: List Docker Images
@@ -33,5 +33,5 @@ jobs:
 
       - name: Push Docker Image to Docker Hub
         run: |
-          IMAGE_TAG="${{ secrets.DOCKER_USERNAME}}-docker_cicd:v1.0"
+          IMAGE_TAG="${{ secrets.DOCKER_USERNAME }}-docker_cicd:v1.0"
           docker push $IMAGE_TAG
