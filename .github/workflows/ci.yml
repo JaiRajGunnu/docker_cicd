@@ -28,5 +28,8 @@ jobs:
       - name: List Docker Images
         run: docker images
 
+      - name: Tag Docker Image
+        run: docker tag ${{ secrets.DOCKER_USERNAME }}/docker_cicd ${{ secrets.DOCKER_USERNAME }}/docker_cicd
+
       - name: Push Docker Image to Docker Hub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/docker_cicd
