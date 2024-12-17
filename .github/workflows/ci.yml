@@ -23,7 +23,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker Image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/docker_cicd ./docker_cicd
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/docker_cicd
 
       - name: List Docker Images
         run: docker images
