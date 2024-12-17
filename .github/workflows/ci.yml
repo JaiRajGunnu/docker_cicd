@@ -22,19 +22,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Debug Docker Username
-        run: |
-          echo "Docker Username is: ${{ secrets.DOCKER_USERNAME }}"
-
       - name: Build Docker Image
         run: docker build -t my-docker-node-app .
-
-      - name: List Docker Images
-        run: docker images
-
-      - name: Debug Docker Tag
-        run: |
-          echo "Tagging with: ${{ secrets.DOCKER_USERNAME }}/my-docker-node-app:latest"
 
       - name: Tag Docker Image
         run: docker tag my-docker-node-app ${{ secrets.DOCKER_USERNAME }}/my-docker-node-app:latest
