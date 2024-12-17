@@ -26,7 +26,7 @@ This project is a simple Node.js web server that performs CRUD (Create, Read, Up
 The project follows this structure:
 
 ```plaintext
-docker-node-ci-cd/
+docker_cicd/
 ├── Dockerfile          # Docker configuration
 ├── docker-compose.yml  # Docker Compose configuration
 ├── .dockerignore       # Files to ignore in Docker builds
@@ -57,8 +57,8 @@ Below are the available API endpoints:
 #### Without Docker
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/docker-node-ci-cd.git
-   cd docker-node-ci-cd
+   git clone https://github.com/JaiRajGunnu/docker_cicd
+   cd docker_cicd
    ```
 
 2. Install dependencies:
@@ -77,18 +77,18 @@ Below are the available API endpoints:
 #### With Docker
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/docker-node-ci-cd.git
-   cd docker-node-ci-cd
+   git clone https://github.com/your-username/docker_cicd.git
+   cd docker_cicd
    ```
 
 2. Build the Docker image:
    ```bash
-   docker build -t docker-node-ci-cd .
+   docker build -t docker_cicd .
    ```
 
 3. Run the container:
    ```bash
-   docker run -p 3000:3000 docker-node-ci-cd
+   docker run -p 3000:3000 docker_cicd
    ```
 
 4. Access the API:
@@ -97,8 +97,8 @@ Below are the available API endpoints:
 #### With Docker Compose
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/docker-node-ci-cd.git
-   cd docker-node-ci-cd
+   git clone https://github.com/JaiRajGunnu/docker_cicd
+   cd docker_cicd
    ```
 
 2. Run the application using Docker Compose:
