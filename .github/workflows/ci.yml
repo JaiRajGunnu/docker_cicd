@@ -33,5 +33,5 @@ jobs:
 
       - name: Push Docker Image to Docker Hub
         run: |
-          IMAGE_TAG="${{ secrets.DOCKER_USERNAME/@/-}}-docker_cicd:v1.0"
+          IMAGE_TAG="${{ secrets.DOCKER_USERNAME}}-docker_cicd:v1.0"
           docker push $IMAGE_TAG
