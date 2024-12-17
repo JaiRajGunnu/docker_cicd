@@ -22,9 +22,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Debug Docker Username
-        run: echo "Docker Username: ${{ secrets.DOCKER_USERNAME }}"
-
       - name: Build Docker Image
         run: docker build -t my-docker-node-app .
 
