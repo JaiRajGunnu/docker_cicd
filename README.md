@@ -155,11 +155,8 @@ curl -X DELETE http://localhost:3000/api/items/1
 - Add unit tests using **Jest** or another testing framework.
 - Deploy the application to a cloud provider (e.g., AWS, Heroku).
 
-## License
-This project is licensed under the MIT License.
+
 
 ---
 
-Feel free to contribute to this project or report any issues!
 
-Happy Coding! 🚀
