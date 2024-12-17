@@ -77,7 +77,7 @@ Below are the available API endpoints:
 #### With Docker
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/docker_cicd.git
+   git clone https://github.com/JaiRajGunnu/docker_cicd
    cd docker_cicd
    ```
 
