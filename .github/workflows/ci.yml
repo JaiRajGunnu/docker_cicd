@@ -25,6 +25,12 @@ jobs:
       - name: Build Docker Image
         run: docker build -t my-docker-node-app .
 
+      - name: List Docker Images
+        run: docker images
+
+      - name: Debug Tag
+        run: echo "Tagging with: ${{ secrets.DOCKER_USERNAME }}/my-docker-node-app:latest"
+
       - name: Tag Docker Image
         run: docker tag my-docker-node-app ${{ secrets.DOCKER_USERNAME }}/my-docker-node-app:latest
 
